@@ -15,7 +15,7 @@ class ConnectedView extends StatelessWidget {
     final joypadConfig = state.joypadConfiguration;
     final buttonConfig = state.buttonConfiguration;
 
-    final appBarTitle = context.l10n.appTitle + state.deviceName;
+    final appBarTitle = '${context.l10n.appTitle} ${state.deviceName}';
 
     return Scaffold(
       appBar: AppBar(title: Text(appBarTitle)),
