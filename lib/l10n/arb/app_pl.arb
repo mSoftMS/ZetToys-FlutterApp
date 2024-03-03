@@ -1,4 +1,7 @@
 {
   "@@locale": "pl",
-  "appTitle": "ZetToys BLE"
+  "appTitle": "ZetToys BLE",
+  "unknownDevice": "Nieznane urządzenie",
+  "deviceId": "ID urządzenia: {id}",
+  "disconnect": "Rozłącz"
 }
