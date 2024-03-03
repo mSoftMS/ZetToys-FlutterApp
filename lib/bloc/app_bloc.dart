@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:flutter_joy_ble/app_consts.dart';
 import 'package:flutter_joy_ble/model/model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -151,11 +152,11 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     final parts = config.split(':');
 
     for (final part in parts) {
-      if (part.startsWith('joy')) {
+      if (part.startsWith(joystickPrefix)) {
         joypadConfiguration = _parseJoyConfig(part, joypadConfiguration);
-      } else if (part.startsWith('buttons')) {
+      } else if (part.startsWith(buttonsConfigPrefix)) {
         buttonConfiguration = _parseButtonConfig(part);
-      } else if (part.startsWith('nazwa')) {
+      } else if (part.startsWith(deviceNameConfigPrefix)) {
         deviceName = _getDeviceName(part);
       }
     }
@@ -170,11 +171,12 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   String _getDeviceName(String part) => part.substring(part.indexOf('=') + 1);
 
   JoypadConfiguration _parseJoyConfig(String part, JoypadConfiguration config) {
-    if (!part.startsWith('joy1') && !part.startsWith('joy2')) {
+    if (!part.startsWith(leftJoystickPrefix) &&
+        !part.startsWith(rightJoystickPrefix)) {
       throw ArgumentError('Invalid joy configuration part: $part');
     }
 
-    final isJoy1 = part.startsWith('joy1');
+    final isJoy1 = part.startsWith(leftJoystickPrefix);
 
     final joyConfig =
         part.substring(part.indexOf('[') + 1, part.indexOf(']')).split(',');
