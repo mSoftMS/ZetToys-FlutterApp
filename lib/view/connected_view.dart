@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_joy_ble/bloc/app_bloc.dart';
 import 'package:flutter_joy_ble/l10n/l10n.dart';
 import 'package:flutter_joy_ble/model/button_configuration.dart';
@@ -35,6 +36,10 @@ class ConnectedView extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: _ButtonsSection(buttonConfig: buttonConfig),
             ),
+            const Align(
+              alignment: Alignment.topRight,
+              child: _DisconnectButton(),
+            ),
           ],
         ),
       ),
@@ -68,4 +73,17 @@ class _ButtonsSection extends StatelessWidget {
             ),
         ],
       );
+}
+
+class _DisconnectButton extends StatelessWidget {
+  const _DisconnectButton();
+
+  @override
+  Widget build(BuildContext context) => ElevatedButton(
+        onPressed: () => _onPressed(context),
+        child: Text(context.l10n.disconnect),
+      );
+
+  void _onPressed(BuildContext context) =>
+      context.read<AppBloc>().add(const AppEvent.disconnect());
 }
