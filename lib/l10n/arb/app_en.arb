@@ -4,5 +4,7 @@
   "unknownDevice": "Unknown device",
   "deviceId": "Device ID: {id}",
   "disconnect": "Disconnect",
-  "connectingToDevice": "Connecting to device: {name}"
+  "connectingToDevice": "Connecting to device: {name}",
+  "noDevices": "No devices found",
+  "searchAgain": "Search again"
 }
