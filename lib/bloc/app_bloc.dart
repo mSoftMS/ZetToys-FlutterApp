@@ -40,7 +40,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     await _deviceStateSubscription?.cancel();
     _deviceStateSubscription = device.state.listen((state) {
       if (state == BluetoothDeviceState.disconnected) {
-        //@TODO: is that correct?
         add(AppEvent.connectToDevice(device: device));
       }
     });
@@ -55,6 +54,8 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
   Future<void> _onDiscoverDevices(Emitter<AppState> emit) async {
     try {
+      emit(const AppState.discoveringDevices());
+
       final scanResults = await _flutterBlue.startScan(
         timeout: const Duration(seconds: 4),
       );
@@ -123,7 +124,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
           break;
         }
       }
-      //@TODO: why break after writable characteristic?
+
       if (writableCharacteristic != null) break;
     }
 
