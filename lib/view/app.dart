@@ -32,8 +32,7 @@ class _AppBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BlocBuilder<AppBloc, AppState>(
         builder: (context, state) => switch (state) {
-          Initial() => const InitialView(),
-          DiscoveringDevices() => const DiscoveringDevicesView(),
+          Initial() || DiscoveringDevices() => const LoadingView(),
           Connecting() => const ConnectingView(),
           Connected() => ConnectedView(state: state),
           Disconnected(:final devices) => DisconnectedView(devices: devices),
