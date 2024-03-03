@@ -6,7 +6,7 @@ sealed class AppState with _$AppState {
 
   const factory AppState.discoveringDevices() = DiscoveringDevices;
 
-  const factory AppState.connecting() = Connecting;
+  const factory AppState.connecting({required String deviceName}) = Connecting;
 
   const factory AppState.connected({
     required BluetoothDevice targetDevice,

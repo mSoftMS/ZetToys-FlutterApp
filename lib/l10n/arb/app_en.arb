@@ -3,5 +3,6 @@
   "appTitle": "ZetToys BLE",
   "unknownDevice": "Unknown device",
   "deviceId": "Device ID: {id}",
-  "disconnect": "Disconnect"
+  "disconnect": "Disconnect",
+  "connectingToDevice": "Connecting to device: {name}"
 }

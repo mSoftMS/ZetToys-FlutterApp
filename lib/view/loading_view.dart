@@ -5,20 +5,23 @@ import 'package:gap/gap.dart';
 import 'package:get/utils.dart';
 
 class LoadingView extends StatelessWidget {
-  const LoadingView({super.key});
+  const LoadingView({super.key, this.title});
+
+  final String? title;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              context.l10n.appTitle,
-              style: context.textTheme.headlineMedium,
-            ),
-            const Gap(15),
-            const SpinKitWave(color: Colors.blue),
-          ],
-        ),
-      );
+  Widget build(BuildContext context) {
+    final title = this.title ?? context.l10n.appTitle;
+
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(title, style: context.textTheme.headlineMedium),
+          const Gap(15),
+          const SpinKitWave(color: Colors.blue),
+        ],
+      ),
+    );
+  }
 }

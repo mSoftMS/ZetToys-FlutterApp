@@ -80,6 +80,8 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     required BluetoothDevice device,
   }) async {
     try {
+      emit(AppState.connecting(deviceName: device.name));
+
       await device.connect();
 
       final completeConfig = await _discoverServicesAndCharacteristics(device);

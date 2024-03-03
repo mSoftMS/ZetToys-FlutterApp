@@ -33,7 +33,8 @@ class _AppBody extends StatelessWidget {
   Widget build(BuildContext context) => BlocBuilder<AppBloc, AppState>(
         builder: (context, state) => switch (state) {
           Initial() || DiscoveringDevices() => const LoadingView(),
-          Connecting() => const ConnectingView(),
+          Connecting(:final deviceName) =>
+            LoadingView(title: context.l10n.connectingToDevice(deviceName)),
           Connected() => ConnectedView(state: state),
           Disconnected(:final devices) => DisconnectedView(devices: devices),
           NoDevicesFound() => const NoDevicesFoundView(),
