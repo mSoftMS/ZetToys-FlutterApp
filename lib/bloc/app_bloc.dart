@@ -4,7 +4,6 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:flutter_joy_ble/model/model.dart';
-import 'package:flutter_joy_ble/model/read_configuration.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'app_bloc.freezed.dart';
