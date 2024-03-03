@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_joy_ble/bloc/app_bloc.dart';
 import 'package:flutter_joy_ble/l10n/l10n.dart';
 import 'package:flutter_joy_ble/view/view.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -11,8 +12,14 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) => BlocProvider(
         create: (_) => AppBloc()..add(const AppEvent.discoverDevices()),
         child: MaterialApp(
-          title: context.l10n.appTitle,
           debugShowCheckedModeBanner: false,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: AppLocalizations.supportedLocales,
           home: const _AppBody(),
           theme: ThemeData.dark(),
         ),
