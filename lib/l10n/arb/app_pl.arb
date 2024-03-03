@@ -6,5 +6,7 @@
   "disconnect": "Rozłącz",
   "connectingToDevice": "Łączenie z urządzeniem: {name}",
   "noDevices": "Nie znaleziono urządzeń",
-  "searchAgain": "Szukaj ponownie"
+  "searchAgain": "Szukaj ponownie",
+  "errorOccurred": "Wystąpił błąd",
+  "tryAgain": "Spróbuj ponownie"
 }

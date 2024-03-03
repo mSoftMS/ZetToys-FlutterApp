@@ -6,5 +6,7 @@
   "disconnect": "Disconnect",
   "connectingToDevice": "Connecting to device: {name}",
   "noDevices": "No devices found",
-  "searchAgain": "Search again"
+  "searchAgain": "Search again",
+  "errorOccurred": "An error occurred",
+  "tryAgain": "Try again"
 }
