@@ -66,13 +66,28 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
       if (scanResults is! List<ScanResult>) return _emitError(emit);
 
-      final devices = scanResults.map((result) => result.device).toList();
+      final devices = scanResults.map((result) => result.device).toList()
+        ..sort(_compareDeviceNames);
 
       emit(AppState.disconnected(devices: devices));
     } catch (e) {
       emit(const AppState.error());
       log(e.toString());
     }
+  }
+
+  int _compareDeviceNames(BluetoothDevice a, BluetoothDevice b) {
+    final aName = a.name;
+    final bName = b.name;
+
+    final isAZetToysDevice = aName.startsWith(zetToysPrefix);
+    final isBZetToysDevice = bName.startsWith(zetToysPrefix);
+
+    if (isAZetToysDevice) return -1;
+
+    if (isBZetToysDevice) return 1;
+
+    return bName.compareTo(aName);
   }
 
   Future<void> _onConnectToDevice(
