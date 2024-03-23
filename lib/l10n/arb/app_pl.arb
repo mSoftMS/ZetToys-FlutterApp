@@ -1,0 +1,12 @@
+{
+  "@@locale": "pl",
+  "appTitle": "ZetToys BLE",
+  "unknownDevice": "Nieznane urządzenie",
+  "deviceId": "ID urządzenia: {id}",
+  "disconnect": "Rozłącz",
+  "connectingToDevice": "Łączenie z urządzeniem: {name}",
+  "noDevices": "Nie znaleziono urządzeń",
+  "searchAgain": "Szukaj ponownie",
+  "errorOccurred": "Wystąpił błąd",
+  "tryAgain": "Spróbuj ponownie"
+}
